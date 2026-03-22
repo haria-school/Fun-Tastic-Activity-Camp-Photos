@@ -83,24 +83,26 @@
     <div class="step-label">Complete Both Steps</div>
     <div class="body-title">Unlock Your Photos</div>
     <p class="body-sub">Complete <strong>both</strong> actions below to access all photos &amp; videos from the camp.</p>
- <a href="#" id="googleBtn" class="action-btn" onclick="openGoogle(this,event); gtag('event','google_click');">
+ 
 
-      <div class="btn-icon google">&#11088;</div>
-      <div class="btn-text">
-        <strong>Rate Us on Google</strong>
-        <span>Tap to open Google &amp; leave a review</span>
-      </div>
-      <div class="check-badge">&#10003;</div>
-    </a>
+      <a href="#" id="googleBtn" class="action-btn" onclick="gtag('event','google_click'); openGoogle(this,event);">
+  <div class="btn-icon google">&#11088;</div>
+  <div class="btn-text">
+    <strong>Rate Us on Google</strong>
+    <span>Tap to open Google & leave a review</span>
+  </div>
+  <div class="check-badge">&#10003;</div>
+</a>
     <div class="and-divider"><span>and</span></div>
-<a href="#" id="instaBtn" class="action-btn" onclick="openInsta(event); gtag('event','insta_click');">
-      <div class="btn-icon insta">&#10084;&#65039;</div>
-      <div class="btn-text">
-        <strong>Follow us on Instagram</strong>
-        <span>@hariaschool_jamnagar</span>
-      </div>
-      <div class="check-badge">&#10003;</div>
-    </a>
+    <a href="#" id="instaBtn" class="action-btn" onclick="gtag('event','insta_click'); openInsta(event);">
+  <div class="btn-icon insta">&#10084;&#65039;</div>
+  <div class="btn-text">
+    <strong>Follow us on Instagram</strong>
+    <span>@hariaschool_jamnagar</span>
+  </div>
+  <div class="check-badge">&#10003;</div>
+</a>
+  
     <div class="error-msg" id="errorMsg"></div>
     <button class="unlock-btn" onclick="unlockPhotos()">&#128275; Show My Photos!</button>
   </div>
