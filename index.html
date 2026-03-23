@@ -161,18 +161,13 @@
     document.getElementById('googleBtn').classList.add('selected');
     document.getElementById('errorMsg').style.display = 'none';
     incStat('googleTaps');
-    var webUrl = 'https://www.facebook.com/hariaschool/';
-    var ua = navigator.userAgent || '';
-    if (/android/i.test(ua)) {
-      var intentUrl = 'intent://www.facebook.com/hariaschool/#Intent;package=com.facebook.katana;scheme=https;S.browser_fallback_url=' + encodeURIComponent(webUrl) + ';end';
-      window.location = intentUrl;
-    } else if (/iphone|ipad|ipod/i.test(ua)) {
-      var fallback = setTimeout(function() { window.location = webUrl; }, 1200);
-      window.addEventListener('blur', function() { clearTimeout(fallback); }, { once: true });
-      window.location = 'fb://page/hariaschool';
-    } else {
-      window.open(webUrl, '_blank');
-    }
+    var a = document.createElement('a');
+    a.href = 'https://www.facebook.com/hariaschool/';
+    a.target = '_blank';
+    a.rel = 'noopener';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
   }
 
   function openInsta(e) {
