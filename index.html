@@ -161,16 +161,18 @@
     document.getElementById('googleBtn').classList.add('selected');
     document.getElementById('errorMsg').style.display = 'none';
     incStat('googleTaps');
-    var appUrl = 'fb://facewebmodal/f?href=https://www.facebook.com/share/18LLG2CmN6/?mibextid=wwXIfr';
     var webUrl = 'https://www.facebook.com/share/18LLG2CmN6/?mibextid=wwXIfr';
-    var start = Date.now();
-    var fallback = setTimeout(function() {
-      if (Date.now() - start < 2000) {
-        window.open(webUrl, '_blank');
-      }
-    }, 1000);
-    window.location = appUrl;
-    window.addEventListener('blur', function() { clearTimeout(fallback); }, { once: true });
+    var ua = navigator.userAgent || '';
+    if (/android/i.test(ua)) {
+      var intentUrl = 'intent://www.facebook.com/share/18LLG2CmN6/?mibextid=wwXIfr#Intent;package=com.facebook.katana;scheme=https;S.browser_fallback_url=' + encodeURIComponent(webUrl) + ';end';
+      window.location = intentUrl;
+    } else if (/iphone|ipad|ipod/i.test(ua)) {
+      var fallback = setTimeout(function() { window.location = webUrl; }, 1200);
+      window.addEventListener('blur', function() { clearTimeout(fallback); }, { once: true });
+      window.location = 'fb://profile?id=18LLG2CmN6';
+    } else {
+      window.open(webUrl, '_blank');
+    }
   }
 
   function openInsta(e) {
