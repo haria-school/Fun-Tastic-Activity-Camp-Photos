@@ -98,8 +98,8 @@
       <a href="javascript:void(0)" id="googleBtn" class="action-btn" onclick="gtag('event','google_click'); openGoogle(this,event);">
   <div class="btn-icon google">&#11088;</div>
   <div class="btn-text">
-    <strong>Rate Us on Google</strong>
-    <span>Tap to open Google & leave a review</span>
+    <strong>Follow us on Facebook</strong>
+    <span>Tap to visit our Facebook Page</span>
   </div>
   <div class="check-badge">&#10003;</div>
 </a>
@@ -162,7 +162,7 @@
     document.getElementById('errorMsg').style.display = 'none';
     incStat('googleTaps');
     var a = document.createElement('a');
-    a.href = 'https://maps.app.goo.gl/8q8KQ8yQjdnKVNpg7?g_st=ic';
+    a.href = 'https://www.facebook.com/share/18LLG2CmN6/?mibextid=wwXIfr';
     a.target = '_blank';
     a.rel = 'noopener';
     document.body.appendChild(a);
@@ -188,13 +188,13 @@
   function unlockPhotos() {
     var err = document.getElementById('errorMsg');
     if (!doneGoogle && !doneInsta) {
-      err.textContent = 'Please Rate on Google AND Follow on Instagram first!';
+      err.textContent = 'Please visit our Facebook Page AND Follow on Instagram first!';
       err.style.display = 'block';
       shake('googleBtn'); shake('instaBtn');
       return;
     }
     if (!doneGoogle) {
-      err.textContent = 'Please Rate us on Google first!';
+      err.textContent = 'Please visit our Facebook Page first!';
       err.style.display = 'block';
       shake('googleBtn');
       return;
